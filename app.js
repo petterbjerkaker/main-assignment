@@ -21,6 +21,8 @@ async function getMovieBySearch (search_term){
 
 button.addEventListener("click", addSearchedMovies)
 
+
+//SEARCH MOVIES
 async function addSearchedMovies(){
 	const data = await getMovieBySearch(input.value)
 	console.log(data);
@@ -51,6 +53,14 @@ async function addSearchedMovies(){
 
 	const cards = document.querySelectorAll(".card");
 	clickCard(cards);
+}
+
+
+// POPUP
+async function getMovieById (id){
+	const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`);
+	const responseData = await response.json();
+	return responseData.results;
 }
 
 function showPopUp(card){
