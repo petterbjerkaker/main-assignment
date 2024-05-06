@@ -7,6 +7,8 @@ const button = document.querySelector(".search button");
 const mainGridTitle = document.querySelector(".favorites h1");
 const mainGrid = document.querySelector(".favorites .movies-grid");
 
+const popUpContainer = document.querySelector(".popup-container");
+
 function clickCard (cards){
 	cards.forEach(card => {
 		card.addEventListener("click", () => showPopUp(card))
@@ -60,9 +62,22 @@ async function addSearchedMovies(){
 async function getMovieById (id){
 	const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`);
 	const responseData = await response.json();
-	return responseData.results;
+	return responseData;
 }
 
-function showPopUp(card){
-	console.log("Popup is shown" + card);
+async function getMovieTrailer (id){
+	const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`);
+	const responseData = await response.json();
+	return responseData.results[0].key;
+}
+
+async function showPopUp(card){
+	popUpContainer.classList.add("show-popup");
+
+	const movieId = card.getAttribute("data-id");
+	const movie = await getMovieById(movieId);
+	const movieTrailer = await getMovieTrailer(movieId);
+
+	popUpContainer.style.background = `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)),
+	url(${image_path + movie.poster_path})`
 }
