@@ -140,4 +140,6 @@ async function showPopUp(card){
 	`
 
 	const xIcon = document.querySelector(".x-icon");
+	xIcon.addEventListener("click", () => popUpContainer.classList.remove("show-popup") 
+ );
 }
