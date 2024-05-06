@@ -30,11 +30,11 @@ async function addSearchedMovies(){
 					<h2>${e.title}</h2>
 					<div class="single-info">
 						<span>Rating: </span>
-						<span>10 / 10</span>
+						<span>${e.vote_average}</span>
 					</div>
 				<div class="single-info">
 					<span>Release date: </span>
-					<span>10-04-2024</span>
+					<span>${e.release_date}</span>
 				</div>
 			</div>
 		</div>
