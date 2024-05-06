@@ -10,7 +10,14 @@ const mainGrid = document.querySelector(".favorites .movies-grid");
 async function getMovieBySearch (search_term){
 	const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search_term}`);
 	const responseData = await response.json();
-	console.log(responseData.results);
 	return responseData.results;
 }
-getMovieBySearch("game");
+
+button.addEventListener("click", addSearchedMovies)
+
+async function addSearchedMovies(){
+	const data = await getMovieBySearch(input.value)
+	console.log(data);
+
+	
+}
