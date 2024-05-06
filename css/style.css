@@ -10,6 +10,7 @@ body{
 	overflow: hidden;
 	color: #fff;
 	cursor:pointer;
+	border-radius:0.5rem;
 }
 
 .img{
@@ -35,6 +36,10 @@ body{
 	background-image: linear-gradient(to top, #151515, transparent);
 }
 
+::-webkit-scrollbar{
+	display: none;
+}
+
 .info{
 	padding: 2rem 1rem 1rem;
 }
@@ -50,4 +55,23 @@ body{
 	justify-content: space-between;
 	font-size: 0.8rem;
 	margin: 0.2rem 0;
+}
+
+.card:hover .img{
+	transform: scale(1.1);
+}
+
+.movies-grid{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-wrap:wrap;
+	gap:2rem;
+	padding:1rem;
+}
+
+.movies-container{
+	padding:1rem;
+	text-align: center;
+	color: #fff;
 }
