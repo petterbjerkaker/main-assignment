@@ -138,4 +138,6 @@ async function showPopUp(card){
 		</div>
 	</div>
 	`
+
+	const xIcon = document.querySelector(".x-icon");
 }
