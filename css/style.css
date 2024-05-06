@@ -155,3 +155,36 @@ body{
 	box-shadow: 0 0 0.5rem rgba(255, 0, 0, 1);
 	border: 1px solid rgba(255, 0, 0, 1);
 }
+
+.poster-img img{
+	width:100%;
+	height:100%;
+	object-fit:cover;
+}
+
+.single-info-container{
+	width:200px;
+}
+
+.right > *:not(h1){
+	margin:1rem 0;
+}
+
+.trailer iframe{
+	border:2px solid rgba(255, 0, 0, 1);
+	box-shadow:0 0 0.5rem rgba(255, 0, 0, 1);
+	border-radius: 0.5rem;
+	max-width:400px;
+	width:100%;
+	height:200px;
+	margin-top:0.5rem;
+}
+
+.x-icon {
+	font-size: 2rem;
+	position:absolute;
+	top:100px;
+	right:100px;
+	cursor: pointer;
+	user-select: none;
+}
