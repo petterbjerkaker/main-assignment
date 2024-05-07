@@ -142,4 +142,14 @@ async function showPopUp(card){
 	const xIcon = document.querySelector(".x-icon");
 	xIcon.addEventListener("click", () => popUpContainer.classList.remove("show-popup") 
  );
+
+ const heartIcon = document.querySelector(".heart-icon");
+heartIcon.addEventListener("click", ()=>{
+	if(heartIcon.classList.contains("change-color")){
+		heartIcon.classList.remove("change-color")
+	}else{
+		heartIcon.classList.add("change-color")
+	}
+})
+
 }
