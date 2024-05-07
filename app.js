@@ -154,7 +154,7 @@ heartIcon.addEventListener("click", ()=>{
 }
 
 //LOCAL STORAGE
-const getLocalStorage =()=>{
+function getLocalStorage (){
 	const favoritedMovies = JSON.parse(localStorage.getItem("movie-id"));
 	return favoritedMovies === null ? [] : favoritedMovies;
 }
