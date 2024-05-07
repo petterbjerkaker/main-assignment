@@ -143,7 +143,7 @@ async function showPopUp(card){
 	xIcon.addEventListener("click", () => popUpContainer.classList.remove("show-popup") 
  );
 
-const heartIcon = document.querySelector(".heart-icon");
+const heartIcon = popUpContainer.querySelector(".heart-icon");
 heartIcon.addEventListener("click", ()=>{
 	if(heartIcon.classList.contains("change-color")){
 		removeLocalStorage(movieId);
@@ -152,7 +152,7 @@ heartIcon.addEventListener("click", ()=>{
 		addToLocalStorage(movieId);
 		heartIcon.classList.add("change-color");
 	}
-	fetchFavoritedMovies() 
+	fetchFavoritedMovies(); 
  });
 };
 
@@ -206,6 +206,7 @@ function addFavoritesFromLocalStorage(movie_data){
 		</div>
 	</div>
 	`
+
 	const cards = document.querySelectorAll(".card");
 	clickCard(cards);
 }
