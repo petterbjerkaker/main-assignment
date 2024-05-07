@@ -150,6 +150,21 @@ heartIcon.addEventListener("click", ()=>{
 	}else{
 		heartIcon.classList.add("change-color")
 	}
-})
+ })
+}
 
+//LOCAL STORAGE
+const getLocalStorage =()=>{
+	const favoritedMovies = JSON.parse(localStorage.getItem("movie-id"));
+	return favoritedMovies === null ? [] : favoritedMovies;
+}
+
+function addToLocalStorage (id){
+	const favoritedMovies = getLocalStorage();
+	localStorage.setItem("movie-id", JSON.stringify([...favoritedMovies, id]));
+}
+
+function removeLocalStorage (id){
+	const favoritedMovies = getLocalStorage();
+	localStorage.setItem("movie-id", JSON.stringify(favoritedMovies.filter(e => e !== id)));
 }
