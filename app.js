@@ -143,15 +143,18 @@ async function showPopUp(card){
 	xIcon.addEventListener("click", () => popUpContainer.classList.remove("show-popup") 
  );
 
- const heartIcon = document.querySelector(".heart-icon");
+const heartIcon = document.querySelector(".heart-icon");
 heartIcon.addEventListener("click", ()=>{
 	if(heartIcon.classList.contains("change-color")){
-		heartIcon.classList.remove("change-color")
+		removeLocalStorage(movieId);
+		heartIcon.classList.remove("change-color");
 	}else{
-		heartIcon.classList.add("change-color")
+		addToLocalStorage(movieId);
+		heartIcon.classList.add("change-color");
 	}
- })
-}
+	fetchFavoritedMovies() 
+ });
+};
 
 //LOCAL STORAGE
 function getLocalStorage (){
@@ -167,4 +170,42 @@ function addToLocalStorage (id){
 function removeLocalStorage (id){
 	const favoritedMovies = getLocalStorage();
 	localStorage.setItem("movie-id", JSON.stringify(favoritedMovies.filter(e => e !== id)));
+}
+
+
+//ADDING AND REMOVING FAVORITE MOVIES
+fetchFavoritedMovies()
+async function fetchFavoritedMovies(){
+	mainGrid.innerHTML = ""
+	const moviesLocalStorage = await getLocalStorage()
+	const movies = []
+	for(let i = 0; i <= moviesLocalStorage.length - 1; i++){
+		const movieId = moviesLocalStorage[i];
+		let movie = await getMovieById(movieId);
+		addFavoritesFromLocalStorage(movie);
+		movies.push(movie);
+	};	
+};
+
+function addFavoritesFromLocalStorage(movie_data){
+	mainGrid.innerHTML += `
+		<div class="card" data-id="${movie_data.id}">
+			<div class="img">
+			<img src="${image_path + movie_data.poster_path}">
+		</div>
+		<div class="info">
+			<h2>${movie_data.title}</h2>
+			<div class="single-info">
+				<span>Rating: </span>
+				<span>${movie_data.vote_average}</span>
+			</div>
+			<div class="single-info">
+				<span>Release date: </span>
+				<span>${movie_data.release_date}</span>
+			</div>
+		</div>
+	</div>
+	`
+	const cards = document.querySelectorAll(".card");
+	clickCard(cards);
 }
