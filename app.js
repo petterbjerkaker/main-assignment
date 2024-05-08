@@ -210,3 +210,12 @@ function addFavoritesFromLocalStorage(movie_data){
 	const cards = document.querySelectorAll(".card");
 	clickCard(cards);
 }
+
+
+getTrendingMovies();
+async function getTrendingMovies (){
+	const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`);
+	const responseData = await response.json();
+	console.log(responseData.results);
+	return responseData.results;
+}
