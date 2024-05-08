@@ -7,6 +7,8 @@ const button = document.querySelector(".search button");
 const mainGridTitle = document.querySelector(".favorites h1");
 const mainGrid = document.querySelector(".favorites .movies-grid");
 
+const trendingMovies = document.querySelector(".trending .movies-grid")
+
 const popUpContainer = document.querySelector(".popup-container");
 
 function clickCard (cards){
@@ -216,6 +218,14 @@ getTrendingMovies();
 async function getTrendingMovies (){
 	const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`);
 	const responseData = await response.json();
-	console.log(responseData.results);
 	return responseData.results;
+}
+
+
+getTrendingMovies();
+async function addTrendingMovies (){
+	const data = await getTrendingMovies();
+	trendingMovies.innerHTML = data.slice(0, 5).map(e => {
+		
+	})
 }
