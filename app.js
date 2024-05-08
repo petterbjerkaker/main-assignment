@@ -218,6 +218,7 @@ getTrendingMovies();
 async function getTrendingMovies (){
 	const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`);
 	const responseData = await response.json();
+	console.log(responseData.results);
 	return responseData.results;
 }
 
@@ -226,6 +227,23 @@ getTrendingMovies();
 async function addTrendingMovies (){
 	const data = await getTrendingMovies();
 	trendingMovies.innerHTML = data.slice(0, 5).map(e => {
-		
-	})
+		return `
+				<div class="card" data-id="${e.id}">
+					<div class="img">
+						<img src="${image_path + e.poster_path}">
+					</div>
+				<div class="info">
+					<h2>${e.title}</h2>
+					<div class="single-info">
+						<span>Rating: </span>
+						<span>${e.vote_average}</span>
+					</div>
+				<div class="single-info">
+					<span>Release date: </span>
+					<span>${e.release_date}</span>
+				</div>
+			</div>
+		</div>
+		`
+	}).join("");
 }
