@@ -142,10 +142,15 @@ async function showPopUp(card){
 	`
 
 	const xIcon = document.querySelector(".x-icon");
-	xIcon.addEventListener("click", () => popUpContainer.classList.remove("show-popup") 
- );
+	xIcon.addEventListener("click", () => popUpContainer.classList.remove("show-popup"));
 
-const heartIcon = popUpContainer.querySelector(".heart-icon");
+	const heartIcon = popUpContainer.querySelector(".heart-icon");
+
+	const favoritedMovies = getLocalStorage();
+	for(let i = 0; i <= favoritedMovies.length; i++){
+		if (favoritedMovies[i] == movieId) heartIcon.classList.add("change-color");
+	};
+
 heartIcon.addEventListener("click", ()=>{
 	if(heartIcon.classList.contains("change-color")){
 		removeLocalStorage(movieId);
