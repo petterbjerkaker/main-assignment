@@ -230,7 +230,6 @@ async function getTrendingMovies (){
 addTrendingMovies();
 async function addTrendingMovies (){
 	const data = await getTrendingMovies();
-	console.log(data);
 
 	trendingMovies.innerHTML = data.slice(0, 5).map(e => {
 		return `
