@@ -41,7 +41,7 @@ async function addSearchedMovies(){
 					<h2>${e.title}</h2>
 					<div class="single-info">
 						<span>Rating: </span>
-						<span>${e.vote_average}</span>
+						<span>${e.vote_average} / 10</span>
 					</div>
 				<div class="single-info">
 					<span>Release date: </span>
@@ -223,14 +223,15 @@ getTrendingMovies();
 async function getTrendingMovies (){
 	const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`);
 	const responseData = await response.json();
-	console.log(responseData.results);
 	return responseData.results;
 }
 
 
-getTrendingMovies();
+addTrendingMovies();
 async function addTrendingMovies (){
 	const data = await getTrendingMovies();
+	console.log(data);
+
 	trendingMovies.innerHTML = data.slice(0, 5).map(e => {
 		return `
 				<div class="card" data-id="${e.id}">
@@ -241,7 +242,7 @@ async function addTrendingMovies (){
 					<h2>${e.title}</h2>
 					<div class="single-info">
 						<span>Rating: </span>
-						<span>${e.vote_average}</span>
+						<span>${e.vote_average} / 10</span>
 					</div>
 				<div class="single-info">
 					<span>Release date: </span>
@@ -250,5 +251,8 @@ async function addTrendingMovies (){
 			</div>
 		</div>
 		`
+		
 	}).join("");
-}
+	const cards = document.querySelectorAll(".card");
+	clickCard(cards);
+};
