@@ -205,3 +205,17 @@ body{
 .change-color{
 	color: #ff0000;
 }
+
+
+@media only screen and (max-width: 800px){
+	.popup-container * {padding:0; }
+	.popup-container { padding: 2rem; }
+	.content{
+		flex-direction: column;
+		margin-top:50rem;
+	}
+	.x-icon{
+		top:10px;
+		right:20px;
+	}
+}
