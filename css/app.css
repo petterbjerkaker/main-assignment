@@ -84,6 +84,7 @@ body{
 	padding: 2rem 0 1rem;
 }
 
+
 .search input, .search button{
 	padding:0.5rem 1rem;
 	font-size:1rem;
@@ -204,6 +205,17 @@ body{
 
 .change-color{
 	color: #ff0000;
+}
+
+
+.app-header, .app-footer{
+	color:#fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:100vw;
+	height:150px;
+	background-color: #151515;;
 }
 
 
