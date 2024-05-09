@@ -1,0 +1,62 @@
+body{
+	background-color: #151515;
+	font-family: "inter";
+}
+
+.app-header{
+	color:#fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:100vw;
+	height:150px;
+	background-color: #151515;
+}
+
+.container{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height:100vh;
+}
+
+.log-in_form{
+	background-color: #151515;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border:2px solid rgba(255, 0, 0, 0.6);
+	width: 400px;
+	height:500px;
+	gap:2rem;
+}
+
+.email, .password{
+	padding:0.5rem 1rem;
+	font-size:1rem;
+	background-color:transparent;
+	border:none;
+	outline:none;
+	border:2px solid rgba(255, 0, 0, 0.6);
+	color: #fff;
+}
+
+.log-in_button{
+	cursor: pointer;
+	padding:0.5rem 1rem;
+	font-size:1rem;
+	background-color:transparent;
+	border:none;
+	outline:none;
+	border:2px solid rgba(255, 0, 0, 0.6);
+	color: #fff;
+}
+.log-in_button:hover{
+	background-color: rgba(255, 0, 0, 0.6);
+}
+.log-in_button:active{
+	transform:scale(0.9);
+}
