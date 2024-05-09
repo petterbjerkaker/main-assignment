@@ -16,15 +16,15 @@
 		<form class="register-form">
 			<h2 class="register-form_header">Sign up</h2>
 			<label for="firstname">First name: </label>
-			<input class="firstname" type="text" placeholder="Enter your first name">
+			<input class="firstname" id="firstname" type="text" placeholder="Enter your first name" required>
 			<label for="lastname">Last name: </label>
-			<input class="lastname" type="text" placeholder="Enter your last name">
+			<input class="lastname" id="lastname" type="text" placeholder="Enter your last name" required>
 			<label for="email">Email: </label>
-			<input class="email" type="text" placeholder="Enter your email address" required>
+			<input class="email" id="email" type="text" placeholder="Enter your email address" required>
 			<label for="password">Create a password: </label>
-			<input class="password" type="text" placeholder="Enter your password" required>
+			<input class="password" id="password" type="text" placeholder="Enter your password" required>
 			<button class="register-button">Register</button>
-			<p class="log-in_form-footer">Already a member? Log in <u>here!</u></p>
+			<p class="log-in_form-footer">Already a member? Log in <a class="forward-link" href="log-in.html"><u>here!</u></a></p>
 		</form>
 	</div>
 </body>
