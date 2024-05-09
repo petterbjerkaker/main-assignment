@@ -38,7 +38,7 @@ body{
 	width: 500px;
 	height:700px;
 	gap:1rem;
-	
+	margin-bottom: 2rem;
 }
 
 .email, .password, .firstname, .lastname{
@@ -71,3 +71,8 @@ body{
 .log-in_form-footer{
 	padding:1.5rem;
 }
+
+.forward-link{
+	color: #fff;
+}
+
