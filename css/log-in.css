@@ -19,7 +19,9 @@ body{
 	justify-content: center;
 	align-items: center;
 	height:100vh;
+	padding:1rem;
 }
+
 
 .log-in_form{
 	background-color: #151515;
@@ -29,6 +31,7 @@ body{
 	justify-content: center;
 	align-items: center;
 	border:2px solid rgba(255, 0, 0, 0.6);
+	border-radius:1.5rem;
 	width: 400px;
 	height:500px;
 	gap:2rem;
@@ -60,3 +63,4 @@ body{
 .log-in_button:active{
 	transform:scale(0.9);
 }
+
