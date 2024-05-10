@@ -124,6 +124,10 @@ body{
 	transform:scale(0.9);
 }
 
+.sign-out_forward{
+	color: white;
+}
+
 .popup-container{
 	position:fixed;
 	width:100%;
