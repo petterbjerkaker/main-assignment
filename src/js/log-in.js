@@ -1,3 +1,7 @@
+import firebaseConfig from "./firebaseConfig.js"
+
+console.log(firebaseConfig);
+
 //SELECTING THE LOG-IN FORM ELEMENTS
 const emailInput = document.querySelector(".email");
 const passwordInput = document.querySelector(".password");
@@ -82,4 +86,6 @@ const validateLogInForm = (email, password, emailErrorElement, passErrorElement)
 
 	return { logInFormStatus }
 };
+
+
 

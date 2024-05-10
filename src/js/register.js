@@ -1,3 +1,8 @@
+import firebaseConfig from "./firebaseConfig.js"
+
+console.log(firebaseConfig);
+
+
 const registerFirstname = document.querySelector(".firstname");
 const registerLastname = document.querySelector(".lastname");
 const registerEmail = document.querySelector(".email");
@@ -31,4 +36,6 @@ registerButton.addEventListener("click", (e)=>{
 	e.preventDefault();
 	validateRegisterForm(registerFirstname.value, registerLastname.value, registerEmail.value, registerPassword.value, registerError)
 });
+
+
 
