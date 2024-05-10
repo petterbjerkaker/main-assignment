@@ -105,6 +105,25 @@ body{
 	transform:scale(0.9);
 }
 
+.sign-out-button{
+	padding:0.5rem 1rem;
+	font-size:1rem;
+	background-color:transparent;
+	border:none;
+	outline:none;
+	border:2px solid rgba(255, 0, 0, 0.6);
+	color: #fff;
+	cursor: pointer;
+}
+
+.sign-out-button:hover{
+	background-color: rgba(255, 0, 0, 0.6);
+}
+
+.sign-out-button:active{
+	transform:scale(0.9);
+}
+
 .popup-container{
 	position:fixed;
 	width:100%;
