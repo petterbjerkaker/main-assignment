@@ -8,6 +8,16 @@ const logInForm = document.querySelector(".log-in_form");
 const logInError = document.querySelector(".log-in_error");
 
 
+//LOG IN BUTTON VALIDATION
+logInButton.addEventListener("click", (e)=>{
+	e.preventDefault();
+	validateLogInForm(
+		emailInput.value,
+		passwordInput.value,
+		emailError,
+		passwordError
+	);
+});
 
 //VALIDATION FOR LOG IN FORM FUNCTION
 const validateLogInForm = (email, password, emailErrorElement, passErrorElement)=>{
@@ -19,8 +29,8 @@ const validateLogInForm = (email, password, emailErrorElement, passErrorElement)
 
 	if(!email && !password){
 		errors.errorStatus = true,
-		errors.emailErrorElement = "Email is required ⚠️",
-		errors.passwordError = "Password is required ⚠️";
+		errors.emailErrorElement = "Email is required!",
+		errors.passwordError = "Password is required!";
 
 		emailErrorElement.style.visibility = "visible";
 		passErrorElement.style.visibility = "visible";
