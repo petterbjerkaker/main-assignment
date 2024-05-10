@@ -41,7 +41,7 @@ const validateLogInForm = (email, password, emailErrorElement, passErrorElement)
 
 	}else if(!email){
 		errors.errorStatus = true,
-		errors.emailErrorElement = "Email is required ⚠️",
+		errors.emailErrorElement = "Email is required!",
 		errors.passwordError = "";
 
 		emailErrorElement.style.visibility = "visible";
@@ -54,7 +54,7 @@ const validateLogInForm = (email, password, emailErrorElement, passErrorElement)
 	}else if(!password){
 		errors.errorStatus = true,
 		errors.emailErrorElement = "",
-		errors.passwordError = "Password is required ⚠️";
+		errors.passwordError = "Password is required!";
 
 		emailErrorElement.style.visibility = "hidden";
 		passErrorElement.style.visibility = "visible";
