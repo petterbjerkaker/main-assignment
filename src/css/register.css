@@ -51,6 +51,10 @@ body{
 	color: #fff;
 }
 
+.register-error{
+	visibility:hidden;
+}
+
 .register-button{
 	cursor: pointer;
 	padding:0.5rem 1rem;
