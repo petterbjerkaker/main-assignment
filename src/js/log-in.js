@@ -1,6 +1,6 @@
-import firebaseConfig from "./firebaseConfig.js"
-
-console.log(firebaseConfig);
+import firebaseConfig from "./firebaseConfig.js";
+import {initializeApp} from "firebase/app";
+console.log(firebaseConfig, initializeApp);
 
 //SELECTING THE LOG-IN FORM ELEMENTS
 const emailInput = document.querySelector(".email");

@@ -1,6 +1,15 @@
-import firebaseConfig from "./firebaseConfig.js"
+import firebaseConfig from "./firebaseConfig.js";
+import {initializeApp} from "firebase/app";
+import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 
-console.log(firebaseConfig);
+
+//INITIALIZE FIREBASE
+initializeApp(firebaseConfig);
+
+//INITIALIZE AUTH SERVICE
+const authService = getAuth();
+
+
 
 
 const registerFirstname = document.querySelector(".firstname");
@@ -34,8 +43,41 @@ const validateRegisterForm = (firstname, lastname, email, password, registerErro
 //VALIDATION REGISTER BUTTON
 registerButton.addEventListener("click", (e)=>{
 	e.preventDefault();
-	validateRegisterForm(registerFirstname.value, registerLastname.value, registerEmail.value, registerPassword.value, registerError)
+	validateRegisterForm(
+		registerFirstname.value, 
+		registerLastname.value, 
+		registerEmail.value, 
+		registerPassword.value, 
+		registerError)
 });
 
+//HANDLE SIGN UP ACTION
+function registerUser(){
+	const {registerErrorStatus} = validateRegisterForm(
+		registerFirstname.value.trim(), 
+		registerLastname.value.trim(), 
+		registerEmail.value.trim(), 
+		registerPassword.value.trim(), 
+		registerError
+	);
+	if(registerErrorStatus()){
+		return
+	}else{
+		const newUser = {
+			firstname: registerFirstname.value.trim(),
+			lastname: registerLastname.value.trim(),
+			registerEmail:registerEmail.value.trim(),
+			registerPassword:registerPassword.value.trim(),
+		}
+		createUserWithEmailAndPassword(authService, newUser.registerEmail, newUser.registerPassword)
+		.then(()=>{
+			registerForm.reset();
+			window.location.href = "index.html";
+		})
+	}
+};
 
-
+registerButton.addEventListener("click", (e)=>{
+	e.preventDefault();
+	registerUser();
+})

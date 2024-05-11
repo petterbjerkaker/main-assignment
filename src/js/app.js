@@ -1,6 +1,15 @@
-import firebaseConfig from "./firebaseConfig.js"
+import firebaseConfig from "./firebaseConfig.js";
+import {initializeApp} from "firebase/app";
+import {getAuth} from "firebase/auth";
 
-console.log(firebaseConfig);
+
+//INITIALIZE FIREBASE
+initializeApp(firebaseConfig);
+
+//INITIALIZE AUTH SERVICE
+const authService = getAuth();
+
+
 
 const API_KEY = "7e06685fd85ca11f85cd3e8a7eb7e12f"
 const image_path = "https://image.tmdb.org/t/p/w1280"
