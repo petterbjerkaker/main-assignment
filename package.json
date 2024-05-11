@@ -2,7 +2,7 @@
   "name": "src",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "log-in.js",
   "scripts": {
     "build": "webpack --config webpack.config.js"
   },
