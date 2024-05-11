@@ -1,6 +1,12 @@
 import firebaseConfig from "./firebaseConfig.js";
 import {initializeApp} from "firebase/app";
-console.log(firebaseConfig, initializeApp);
+import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
+
+//INITIALIZE FIREBASE
+initializeApp(firebaseConfig);
+
+//INITIALIZE AUTH SERVICE
+const authService = getAuth();
 
 //SELECTING THE LOG-IN FORM ELEMENTS
 const emailInput = document.querySelector(".email");
@@ -89,3 +95,37 @@ const validateLogInForm = (email, password, emailErrorElement, passErrorElement)
 
 
 
+
+//HANDLE SIGN IN ACTION
+function signInUser(){
+	const { logInFormStatus } = validateLogInForm(
+		emailInput.value,
+		passwordInput.value,
+		emailError,
+		passwordError
+	);
+	if(logInFormStatus()){
+		return
+	}else{
+		const email = emailInput.value.trim();
+		const password = passwordInput.value.trim();
+		signInWithEmailAndPassword(authService, email, password)
+		.then(()=>{
+			logInForm.reset(); 
+			window.location.href = "app.html";
+		})
+		.catch(error =>{
+			if(error.code === "auth/user-not-found" || "auth/wrong-password"){
+				passwordError.textContent = "Invalid email or password.";
+				passwordError.style.visibility = "visible";
+			}else{
+				console.error("Error signing in:", error);
+			}
+		})
+	};
+};
+
+logInButton.addEventListener("click", (e)=>{
+	e.preventDefault();
+	signInUser();
+});
