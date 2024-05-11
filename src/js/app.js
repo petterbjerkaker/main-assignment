@@ -1,6 +1,6 @@
 import firebaseConfig from "./firebaseConfig.js";
 import {initializeApp} from "firebase/app";
-import {getAuth} from "firebase/auth";
+import {getAuth, signOut} from "firebase/auth";
 
 
 //INITIALIZE FIREBASE
@@ -23,6 +23,9 @@ const mainGrid = document.querySelector(".favorites .movies-grid");
 const trendingMovies = document.querySelector(".trending .movies-grid")
 
 const popUpContainer = document.querySelector(".popup-container");
+
+const signOutButton = document.querySelector(".sign-out-button");
+
 
 function clickCard (cards){
 	cards.forEach(card => {
@@ -269,3 +272,18 @@ async function addTrendingMovies (){
 	clickCard(cards);
 };
 
+
+
+
+//HANDLE SIGN OUT ACTION
+function signOutUser(){
+	signOut(authService)
+	.then(()=>{
+		window.location.href = "index.html";
+	});
+};
+
+signOutButton.addEventListener("click", (e)=>{
+	e.preventDefault();
+	signOutUser();
+});
