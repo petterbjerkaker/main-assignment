@@ -51,6 +51,9 @@ registerButton.addEventListener("click", (e)=>{
 		registerError)
 });
 
+
+
+
 //HANDLE SIGN UP ACTION
 function registerUser(){
 	const {registerErrorStatus} = validateRegisterForm(
@@ -74,10 +77,12 @@ function registerUser(){
 			registerForm.reset();
 			window.location.href = "index.html";
 		})
+		.then((err)=> console.log(err.message))
 	}
 };
 
 registerButton.addEventListener("click", (e)=>{
 	e.preventDefault();
 	registerUser();
-})
+});
+
