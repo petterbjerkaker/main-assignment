@@ -254,14 +254,7 @@ body{
 		font-size: 4rem;
 	}
 
-	.poster-img{
-		width:500px;
-		height:500px;
-		overflow:hidden;
-		border-radius: 0.5rem;
-		box-shadow: 0 0 0.5rem rgba(255, 0, 0, 1);
-		border: 1px solid rgba(255, 0, 0, 1);
-	}
+
 
 	.content .left .single-info .heart-icon{
 		font-size:4rem;
