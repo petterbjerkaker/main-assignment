@@ -5,7 +5,7 @@ module.exports = {
 	mode: "development",
 	entry: {
 	app:"./src/js/app.js",
-	logIn:"./src/js/log-in.js",
+	index:"./src/js/log-in.js",
 	register:"./src/js/register.js",
 	},
 	output:{
